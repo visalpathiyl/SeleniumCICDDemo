@@ -80,12 +80,17 @@ namespace DotNetTestProject.Test
 
         }
 
-        private IWebDriver GetDriverType(EnumTest enumTest)
+        public IWebDriver GetDriverType(EnumTest enumTest)
         {
+
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--headless=new");
+
+
             switch (enumTest)
             {
                 case EnumTest.Chrome:
-                    _driver = new ChromeDriver();
+                    _driver = new ChromeDriver(options);
 
                     break;
                 case EnumTest.edge:
@@ -101,6 +106,14 @@ namespace DotNetTestProject.Test
             return _driver;
         }
 
+        [Test]
+        [Category("DriverTypeTest")]
+        public void TestGetDriverType()
+        {
+            _driver = GetDriverType(enumTest);
+            Assert.IsNotNull(_driver);
+
+        }
 
 
 
