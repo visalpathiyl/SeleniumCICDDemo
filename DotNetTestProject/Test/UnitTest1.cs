@@ -9,7 +9,7 @@ using OpenQA.Selenium.Support.UI;
 namespace DotNetTestProject.Test
 {
 
-    [TestFixture("admin", "password", EnumTest.edge)]
+    [TestFixture("admin", "password", EnumTest.Chrome)]
     public class Tests
     {
         private IWebDriver _driver;
